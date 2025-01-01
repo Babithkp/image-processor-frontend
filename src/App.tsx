@@ -74,36 +74,40 @@ function App() {
           <button
             className="bg-blue-500 text-white p-2 rounded-lg"
             onClick={handleImageUploadClick}
+            disabled={loading}
           >
             Upload Image
           </button>
         </div>
         <div className="border w-1/2 p-5 rounded-xl flex flex-col gap-10 h-fit max-lg:w-full">
           <h2 className="text-2xl font-bold">Here is the processed image</h2>
-          <div>
-            <p className="text-xl font-bold">
-              Mobile View {mobileImageSize ? `${mobileImageSize} bytes` : ""}
-            </p>
-            {mobileImage && (
-              <img src={mobileImage} alt="" className="h-full w-full" />
-            )}
-          </div>
-          <div>
-            <p className="text-xl font-bold">
-              Tablet View {tabletImageSize ? `${tabletImageSize} bytes` : ""}
-            </p>
-            {tabletImage && (
-              <img src={tabletImage} alt="" className="h-full w-full" />
-            )}
-          </div>
-          <div>
-            <p className="text-xl font-bold">
-              Desktop View {desktopImageSize ? `${desktopImageSize} bytes` : ""}
-            </p>
-            {desktopImage && (
-              <img src={desktopImage} alt="" className="h-full w-full" />
-            )}
-          </div>
+          {mobileImage && tabletImage && desktopImage && <> 
+            <div>
+              <p className="text-xl font-bold">
+                Mobile View {mobileImageSize ? `${mobileImageSize} bytes` : ""}
+              </p>
+              {mobileImage && (
+                <img src={mobileImage} alt="" className="h-full w-full" />
+              )}
+            </div>
+            <div>
+              <p className="text-xl font-bold">
+                Tablet View {tabletImageSize ? `${tabletImageSize} bytes` : ""}
+              </p>
+              {tabletImage && (
+                <img src={tabletImage} alt="" className="h-full w-full" />
+              )}
+            </div>
+            <div>
+              <p className="text-xl font-bold">
+                Desktop View{" "}
+                {desktopImageSize ? `${desktopImageSize} bytes` : ""}
+              </p>
+              {desktopImage && (
+                <img src={desktopImage} alt="" className="h-full w-full" />
+              )}
+            </div>
+          </>}
         </div>
       </div>
     </main>
